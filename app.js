@@ -63,14 +63,13 @@ const initialiseCanvas = () => {
     const stage = new createjs.Stage(canvas);
     stage.enableMouseOver(100);
 
-    points.forEach((point) => {
-        drawPoint(stage, point);
-    });
-
-    // connect the points
     for (let i = 0; i < points.length - 1; i++) {
         drawLine(stage, points[i], points[i + 1]);
     }
+
+    points.forEach((point) => {
+        drawPoint(stage, point);
+    });
 
     stage.update();
 };
